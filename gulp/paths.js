@@ -20,12 +20,12 @@ paths.vendorDir 				= paths.vendorDir + '/';
 paths.scssSourceFiles 				= paths.sourceDir + paths.scssFolderName + '/';
 paths.jsSourceFiles						= paths.sourceDir + paths.jsFolderName + '/';
 paths.imageSourceFiles				= paths.sourceDir + paths.imageFolderName + '/';
-paths.vendorSourceFiles				= '../' + paths.vendorFolderName;
+paths.vendorSourceFiles				= paths.vendorFolderName + '/';
 
 // Public file locations
-paths.cssPublicFiles 					= paths.publicFolderName + paths.cssFolderName + '/';
-paths.jsPublicFiles						= paths.publicFolderName + paths.jsFolderName + '/';
-paths.imagePublicFiles				= paths.publicFolderName + paths.imageFolderName + '/';
+paths.cssPublicFiles 					= paths.publicDir + paths.cssFolderName + '/';
+paths.jsPublicFiles						= paths.publicDir + paths.jsFolderName + '/';
+paths.imagePublicFiles				= paths.publicDir + paths.imageFolderName + '/';
 
 // Global patterns by file type
 paths.scssPattern 						= '*.scss';
