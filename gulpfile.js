@@ -9,8 +9,8 @@ var paths 				= require('./gulp/paths');
 
 // 'gulp build' -- build assets
 gulp.task('build', gulp.series(
-	gulp.series('styles', 'scripts', 'html', 'images')
+	gulp.series('styles', 'scripts')
 ));
 
 // 'gulp' -- default task execution
-gulp.task('default', gulp.series('build', 'serve'));
+gulp.task('default', gulp.series('build'));
