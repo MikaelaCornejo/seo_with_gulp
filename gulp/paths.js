@@ -8,6 +8,7 @@ paths.imageFolderName		= 'images';
 paths.jsFolderName			= 'js';
 paths.cssFolderName			= 'css';
 paths.scssFolderName		= 'scss';
+paths.htmlFolderName 		= 'html';
 paths.publicFolderName	= 'public';
 paths.vendorFolderName	= 'node_modules';
 
@@ -20,6 +21,7 @@ paths.vendorDir 				= paths.vendorDir + '/';
 paths.scssSourceFiles 				= paths.sourceDir + paths.scssFolderName + '/';
 paths.jsSourceFiles						= paths.sourceDir + paths.jsFolderName + '/';
 paths.imageSourceFiles				= paths.sourceDir + paths.imageFolderName + '/';
+paths.htmlSourceFiles					= paths.sourceDir + paths.htmlFolderName + '/';
 paths.vendorSourceFiles				= paths.vendorFolderName + '/';
 
 // Public file locations
@@ -31,10 +33,12 @@ paths.imagePublicFiles				= paths.publicDir + paths.imageFolderName + '/';
 paths.scssPattern 						= '*.scss';
 paths.jsPattern								= '*.js';
 paths.imagePattern 						= '*.+(jpg|JPG|jpeg|JPEG|png|PNG|svg|SVG|gif|GIF|webp|WEBP|tif|TIF|eps|EPS)';
+paths.htmlPattern							= '*.html';
 
 // File globals
 paths.scssFilesGlob						= paths.scssSourceFiles + paths.scssPattern;
 paths.jsFilesGlob							= paths.jsSourceFiles + paths.jsPattern;
 paths.imageFilesGlob 					= paths.imageSourceFiles + paths.imagePattern;
+paths.htmlFilesGlob						= paths.htmlSourceFiles + paths.htmlPattern;
 
 module.exports = paths;
