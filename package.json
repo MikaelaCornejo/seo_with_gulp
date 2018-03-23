@@ -1,0 +1,28 @@
+{
+  "name": "gulp-tutorial",
+  "version": "1.0.0",
+  "description": "Sample Gulp Tutorial",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Gulp",
+    "HTML5",
+    "CSS3",
+    "JS"
+  ],
+  "author": "Guy Romelle Magayano",
+  "license": "MIT",
+  "repository": "git+ssh://git@gitlab.com/mguyromelle/sample-gulp-project.git",
+  "bugs": {
+    "url": "https://gitlab.com/mguyromelle/sample-gulp-project/issues"
+  },
+  "homepage": "https://gitlab.com/mguyromelle/sample-gulp-project#README",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
