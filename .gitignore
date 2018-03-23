@@ -1,3 +1,6 @@
 # Folders
 public/
 node_modules/
+
+# File Extensions
+*.html
