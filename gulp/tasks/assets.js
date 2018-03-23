@@ -1,21 +1,21 @@
 'use strict';
 
-var autoprefixer = require('autoprefixer');
-var browsersync  = require('browser-sync').create();
-var concat       = require('gulp-concat');
-var concatcss    = require('gulp-concat-css');
-var cssimport    = require('gulp-cssimport');
-var csslint      = require('gulp-csslint');
-var cssnano      = require('gulp-cssnano');
-var gulp         = require('gulp');
-var gzip         = require('gulp-gzip');
-var notify       = require('gulp-notify');
-var plumber      = require('gulp-plumber');
-var postcss      = require('gulp-postcss');
-var sass         = require('gulp-sass');
-var size         = require('gulp-size');
-var sourcemaps   = require('gulp-sourcemaps');
-var uglify       = require('gulp-uglify');
+var autoprefixer = require('autoprefixer'),
+		browsersync  = require('browser-sync').create(),
+		concat       = require('gulp-concat'),
+		concatcss    = require('gulp-concat-css'),
+		cssimport    = require('gulp-cssimport'),
+		csslint      = require('gulp-csslint'),
+		cssnano      = require('gulp-cssnano'),
+		gulp         = require('gulp'),
+		gzip         = require('gulp-gzip'),
+		notify       = require('gulp-notify'),
+		plumber      = require('gulp-plumber'),
+		postcss      = require('gulp-postcss'),
+		sass         = require('gulp-sass'),
+		size         = require('gulp-size'),
+		sourcemaps   = require('gulp-sourcemaps'),
+		uglify       = require('gulp-uglify');
 
 // Include paths file 
 var paths 			 = require('../paths');
@@ -35,11 +35,9 @@ var processors = [
 			'ios >= 7',
 			'android >= 4',
 			'bb >= 10'
-		],
+		]
 	}),
-	cssnano({
-		discardComments: true
-	}),
+	cssnano,
 	csslint
 ];
 
@@ -47,22 +45,58 @@ gulp.task('styles', () =>
 	gulp.src(paths.scssSourceFiles + 'style.scss')
 		.pipe(plumber())
 		.pipe(sass({
-			outputStyle: 'compressed'
+			outputStyle: 'compressed',
+			includePaths: [
+				paths.scssFilesGlob
+			]
 		}).on('error', sass.logError))
-		.pipe(cssimport(paths.scssFilesGlob))
+		.pipe(cssimport())
 		.pipe(postcss(processors))
 		.pipe(concatcss('style.css'))
-		.pipe(plumber.stop())
+		.pipe(plumber.stop())		
 		.pipe(sourcemaps.init())
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(paths.cssPublicFiles))
 		.pipe(gzip())
 		.pipe(size({
-			title: 'styles',
 			gzip: true,
 			showFiles: true
 		}))
 		.pipe(gulp.dest(paths.cssPublicFiles))
 		.pipe(notify("Styles Task Completed"))
+		.pipe(browsersync.stream())
+);
+
+// 'gulp scripts' -- compiles JS files into a single JS file, creates a sourcemap, and auto-inject into browsers
+gulp.task('scripts', () =>
+	gulp.src([
+		paths.vendorSourceFiles + 'jquery/dist/jquery.js',
+		paths.jsSourceFiles + paths.jsFilesGlob
+	])
+		.pipe(plumber())
+		.pipe(concat('bundle.js'))
+		.pipe(uglify({
+			mangle: true,
+			compress: {
+				sequences: true,
+				dead_code: true,
+				conditionals: true,
+				booleans: true,
+				unused: true,
+				if_return: true,
+				join_vars: true,
+				drop_console: true
+			}
+		}))
+		.pipe(sourcemaps.init())
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest(paths.jsPublicFiles))
+		.pipe(gzip())
+		.pipe(size({
+			gzip: true,
+			showFiles: true
+		}))
+		.pipe(gulp.dest(paths.jsPublicFiles))
+		.pipe(notify("Scripts Task Completed."))
 		.pipe(browsersync.stream())
 );
