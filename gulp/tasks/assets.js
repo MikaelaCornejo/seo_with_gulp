@@ -9,6 +9,8 @@ var autoprefixer = require('autoprefixer'),
 		cssnano      = require('gulp-cssnano'),
 		gulp         = require('gulp'),
 		gzip         = require('gulp-gzip'),
+		htmlmin 		 = require('gulp-htmlmin'),
+		imagemin 		 = require('gulp-imagemin'),
 		notify       = require('gulp-notify'),
 		plumber      = require('gulp-plumber'),
 		postcss      = require('gulp-postcss'),
@@ -51,8 +53,8 @@ gulp.task('styles', () =>
 			]
 		}).on('error', sass.logError))
 		.pipe(cssimport())
-		.pipe(postcss(processors))
 		.pipe(concatcss('style.css'))
+		.pipe(postcss(processors))
 		.pipe(plumber.stop())		
 		.pipe(sourcemaps.init())
 		.pipe(sourcemaps.write('.'))
@@ -71,7 +73,7 @@ gulp.task('styles', () =>
 gulp.task('scripts', () =>
 	gulp.src([
 		paths.vendorSourceFiles + 'jquery/dist/jquery.js',
-		paths.jsSourceFiles + paths.jsFilesGlob
+		paths.jsFilesGlob
 	])
 		.pipe(plumber())
 		.pipe(concat('bundle.js'))
@@ -100,3 +102,59 @@ gulp.task('scripts', () =>
 		.pipe(notify("Scripts Task Completed."))
 		.pipe(browsersync.stream())
 );
+
+// 'gulp images' -- optimizes images
+gulp.task('images', () =>
+	gulp.src(paths.imageFilesGlob)
+		.pipe(imagemin([
+			imagemin.gifsicle({ interlaced: true }),
+			imagemin.jpegtran({ progressive: true }),
+			imagemin.optipng(),
+			imagemin.svgo({ plugins: [{ cleanupIDs: false }] })
+		], { verbose: true }))
+		.pipe(size({
+			showFiles: true
+		}))
+		.pipe(gulp.dest(paths.imagePublicFiles))
+		.pipe(notify("Images Task Completed."))
+		.pipe(browsersync.stream())
+);
+
+// 'gulp html' -- minifies HTML files
+gulp.task('html', () =>
+	gulp.src(paths.htmlFilesGlob)
+		.pipe(htmlmin({
+			collapseWhitespace: true,
+			collapseInlineTagWhitespace: true,
+			html5: true,
+			caseSensitive: true
+		}))
+		.pipe(size({
+			showFiles: true
+		}))
+		.pipe(gulp.dest("."))
+		.pipe(notify("HTML Task Completed."))
+		.pipe(browsersync.stream({ once: true }))
+);
+
+// Reload site when changes are noticed
+function reload(done) {
+	browsersync.reload;
+	done();
+}
+
+// 'gulp serve' -- serve site in browser and watch for changes in source folder and reload site automatically
+gulp.task('serve', (done) => {
+	browsersync.init({
+		server: {
+			baseDir: '.'
+		},
+		open: false,
+		injectChanges: true
+	});
+
+	gulp.watch(paths.scssFilesGlob, gulp.series('styles', reload));
+	gulp.watch(paths.jsFilesGlob, gulp.series('scripts', reload));
+	gulp.watch(paths.imageFilesGlob, gulp.series('images', reload));
+	gulp.watch(paths.htmlFilesGlob, gulp.series('html', reload));
+});
