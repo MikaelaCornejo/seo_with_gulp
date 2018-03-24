@@ -30,6 +30,7 @@ gulp.task('styles', () =>
 		.pipe(plumber())
 		.pipe(sass({ style: 'expanded' }).on('error', sass.logError))
 		.pipe(concatcss('style.css'))
+		.pipe(csslint())
 		.pipe(autoprefixer({
 			 browsers: [
 				'last 2 versions',
