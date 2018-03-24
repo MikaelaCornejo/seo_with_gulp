@@ -152,7 +152,8 @@ gulp.task('serve', (done) => {
 		server: {
 			baseDir: '.'
 		},
-		open: false,
+		https: true,
+		open: true,
 		injectChanges: true
 	});
 
