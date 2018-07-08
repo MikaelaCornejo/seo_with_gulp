@@ -1,24 +1,28 @@
 {
-  "name": "gulp-tutorial",
+  "name": "seo_with_gulp",
   "version": "1.0.0",
-  "description": "Sample Gulp Tutorial",
+  "description": "SEO Homepage using Gulp",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guyromellemagayano/sample-gulp-project.git"
+  },
   "keywords": [
-    "Gulp",
     "HTML5",
     "CSS3",
-    "JS"
+    "Bootstrap",
+    "JS",
+    "Gulp"
   ],
-  "author": "Guy Romelle Magayano",
-  "license": "MIT",
-  "repository": "git+ssh://git@gitlab.com/mguyromelle/sample-gulp-project.git",
+  "author": "Mikaela Cornejo",
+  "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/mguyromelle/sample-gulp-project/issues"
+    "url": "https://github.com/guyromellemagayano/sample-gulp-project/issues"
   },
-  "homepage": "https://gitlab.com/mguyromelle/sample-gulp-project#README",
+  "homepage": "https://github.com/guyromellemagayano/sample-gulp-project#readme",
   "devDependencies": {
     "autoprefixer": "^7.2.5",
     "browser-sync": "^2.24.5",
