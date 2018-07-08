@@ -1,0 +1,67 @@
+p {
+    font-family: $open-sans;
+}
+
+p.text-large {
+    font-size: 1em;
+}
+
+p.text-medium {
+    font-size: .8em;
+}
+
+p.text-small,
+.text-small {
+    font-size: .7em;
+}
+
+p.text-extra-small,
+.text-extra-small  {
+    font-size: .5em;
+}
+
+.left-side-paragraph {
+    padding: 5vh 3vw 5vh 10vw;
+}
+
+.right-side-paragraph {
+    padding: 5vh 10vw 5vh 3vw;
+}
+
+@media (max-width: 576px) {
+    .left-side-paragraph {
+        padding: 5vh 10vw;
+        text-align: justify;
+    }
+    .right-side-paragraph {
+        padding: 5vh 10vw;
+        text-align: justify;
+    }
+    .left-side-paragraph h3 {
+        text-align: left;
+    }
+    .right-side-paragraph h3 {
+    text-align: left;
+    }
+}
+
+@media (max-width: 768px) and (min-width: 575px) {
+    .left-side-paragraph {
+        padding: 5vh 10vw;
+        text-align: justify;
+    }
+    .right-side-paragraph {
+        padding: 5vh 10vw;
+        text-align: justify;
+    }
+    .left-side-paragraph h3 {
+        text-align: left;
+    }
+    .right-side-paragraph h3 {
+    text-align: left;
+    }
+}
+
+p.noto-sans {
+    font-family: $noto-sans;
+}

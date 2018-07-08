@@ -1,0 +1,38 @@
+.navbar {
+  padding: 4vh 10vw;
+}
+
+.navbar-brand-size {
+  width: 15vw;
+  vertical-align: top;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  font-family: $noto-sans;   
+  font-size: .8vw; 
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0 2em;
+  vertical-align: middle;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #fdc027;
+  text-decoration: none;
+}
+
+.nav-btn-text {
+    font-family: $open-sans;
+    font-size: 0.8vw; 
+    font-weight: bold;
+    color: #ffffff;
+    padding: 0.7em;
+    background-color: #2980b9;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+
+.nav-btn-icon {
+    height: 15px;
+    margin-right: 4px;
+}

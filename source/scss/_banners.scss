@@ -1,0 +1,116 @@
+.banner-container {
+    background-image: url("../../public/images/banner-img.png");
+    padding: 13vh 10vw 7vh 10vw;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 576px) {
+    .banner-container {
+        justify-content: center;
+    }
+    .banner-title, 
+    .banner-subtitle {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) and (min-width: 575px) {
+    .banner-container {
+        justify-content: center;
+    }
+    .banner-title, 
+    .banner-subtitle {
+        text-align: center;
+    }
+}
+
+@media (max-width: 992px) and (min-width:766px) {
+    .banner-container {
+        justify-content: center;
+    }
+    .banner-title, 
+    .banner-subtitle {
+        text-align: center;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 991px) {
+    .banner-container {
+        justify-content: center;
+    }
+    .banner-title, 
+    .banner-subtitle {
+        text-align: center;
+    }
+}
+
+@media (max-width: 1370px) and (min-width: 1199px) {
+    .banner-container {
+        justify-content: center;
+    }
+    .banner-title, 
+    .banner-subtitle {
+        text-align: center;
+    }
+}
+
+.form {
+    border: .2em solid #ffffff;
+    border-radius: 10px;
+    width: 20em;
+    padding: 1em 1em;
+}
+
+@media (max-width: 576px) {
+    .form {
+        margin-top: 5vh;
+    }
+}
+
+@media (max-width: 768px) and (min-width: 575px) {
+    .form {
+        margin-top: 5vh;
+    }
+}
+
+@media (max-width: 992px) and (min-width:766px) {
+    .form {
+        margin-top: 5vh;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 991px) {
+    .form {
+        margin-top: 5vh;
+    }
+}
+
+@media (max-width: 1370px) and (min-width: 1199px) {
+    .form {
+        margin-top: 5vh;
+    }
+}
+
+.form-control-xs {
+    font-size: 0.6em;
+    font-weight: bold;
+    padding: 0.5em;
+    margin: .3em 0;
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+}
+
+.form-button {
+    font-family: $montserrat;
+    font-size: 0.6em; 
+    font-weight: bold;
+    color: #ffffff;
+    padding: 0.5em;
+    margin: .3em 0;
+    border-radius: 3px;
+    background-color: #2980b9;
+}
+

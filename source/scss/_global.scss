@@ -1,0 +1,62 @@
+html, body { 
+    height: 100%;
+    width: 100%;
+    box-sizing: content-box;
+}
+
+.container-fluid, 
+.container,
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+.line-height {
+    line-height: 2;
+}
+
+.horizontal-line {
+    width: 5em;
+    margin: 1vh 0 4vh 0;
+}
+
+.two-columns {
+    width: 100%;
+    column-count: 2;
+    column-gap: 3vw;
+}
+
+.circle-icon-size {
+    background-size: cover;
+    background-position: center;
+    max-height: 8vh;
+}
+
+.card-deck .card {
+    margin: 1em;
+    border: 0px solid;
+    border-radius: 28px;
+}
+
+.carousel-min-height {
+    min-height: 12em ;
+}
+
+.carousel-indicators li {
+    background-color: #fdc027;
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+}
+
+.carousel-indicators .active {
+    background-color: #ffffff;
+    border: 1px solid #fdc027;
+}
+
+.logo { 
+    opacity: .5;
+    width: 7em;
+    height: 1.3em;
+    margin: 2em 0;
+}
