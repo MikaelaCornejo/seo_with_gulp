@@ -8,4 +8,4 @@ Version: 1.0.0
 
 ### Contributors ###
 
-* Guy Romelle Magayano
+* Guy Romelle Magayano & Mikaela Cornejo
